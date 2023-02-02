@@ -1,0 +1,13 @@
+.html-code-editor .resizable-component #ace-editor {
+    height: 100% !important;
+}
+
+.resizable-component {
+    min-height: 50px;
+    border: 1px solid lightgrey;
+    z-index: 0;
+}
+
+.code-editor-visibility {
+    display: none;
+}

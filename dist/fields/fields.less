@@ -1,0 +1,108 @@
+@main-title-color: #001529;
+@field-title-color: rgba(0, 21, 41, 0.55);
+@font-size-base: 14px;
+
+.object-field {
+    .title-wrapper {
+        display: flex;
+        margin: 8px 0;
+
+        .togglable {
+            cursor: pointer;
+        }
+
+        :global(.checkbox) {
+            margin-right: 8px;
+        }
+
+        .title {
+            font-size: @font-size-base;
+            font-weight: 500;
+            line-height: 1.5;
+            color: @main-title-color;
+        }
+    }
+
+    .fields-list {
+        .lowest-fields {
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+            .field {
+                &:nth-child(odd) {
+                    margin-right: 8px;
+                }
+
+                &:nth-child(even) {
+                    margin-left: 8px;
+
+                    &.boolean {
+                        margin: 1px auto auto 8px !important;
+                    }
+                }
+            }
+        }
+
+        .field {
+            :global(.ant-select) {
+                width: 100%;
+            }
+
+            &.boolean {
+                display: flex;
+                flex-direction: row-reverse;
+                margin: 1px auto auto 0 !important;
+
+                > :global(.checkbox) {
+                    margin-right: 8px;
+                }
+            }
+
+            &.required {
+                :global(.ant-input),
+                :global(.ant-select-selection) {
+                    border: solid 2px #f5222d;
+                    border-radius: 4px;
+
+                    &:global(.ant-input-disabled),
+                    &:global(.ant-select-disabled) {
+                        border: solid 2px rgba(245, 34, 45, 0.25);
+                    }
+
+                    &:active,
+                    &:focus {
+                        box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.38);
+                    }
+                }
+            }
+
+            > :global(.ant-select) {
+                width: 100%;
+            }
+
+            .field-title {
+                overflow: hidden;
+                height: 21px;
+                overflow-wrap: break-word;
+                font-size: @font-size-base;
+                font-weight: 300;
+                line-height: 1.5;
+                color: @field-title-color;
+            }
+        }
+    }
+}
+
+:global(.array-item-toolbox) {
+    .button-group {
+        display: flex;
+        justify-content: space-around;
+
+        .button {
+            flex: 1;
+            padding-left: 6px;
+            padding-right: 6px;
+            font-weight: bold;
+        }
+    }
+}
